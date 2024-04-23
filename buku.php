@@ -14,25 +14,28 @@
           </tr>
         </thead>
         <tbody>
+          <!-- Fungsi untuk mengambil semua data dari basis data -->
           <?php
           $sql = mysqli_query($conn, "SELECT * FROM buku");
           while ($data = mysqli_fetch_array($sql)) {
           ?>
-          <tr>
-            <td class="py-1">
-              <?= $data['judul'] ?>
-            </td>
-            <td><?= $data['penulis'] ?></td>
-            <td><?=  $data['penerbit'] ?></td>
-            <td><?= $data['tahunterbit'] ?></td>
-            <td>
-              <a href="?page=bukupinjam&id=<?= $data['bukuid'] ?>" class="btn btn-gradient-primary">Pinjam</a>
-              <a href="?page=bukukoleksi&id=<?= $data['bukuid'] ?>" class="btn btn-gradient-success btn-fw">Tambah Ke Koleksi</a>
-            </td>
-          </tr>
+            <!-- Melakukan perulangan untuk menampilkan semua data -->
+            <tr>
+              <td class="py-1">
+                <?= $data['judul'] ?>
+              </td>
+              <td><?= $data['penulis'] ?></td>
+              <td><?= $data['penerbit'] ?></td>
+              <td><?= $data['tahunterbit'] ?></td>
+              <td>
+                <a href="?page=bukupinjam&id=<?= $data['bukuid'] ?>" class="btn btn-gradient-primary">Pinjam</a>
+                <a href="?page=bukukoleksi&id=<?= $data['bukuid'] ?>" class="btn btn-gradient-success btn-fw">Tambah Ke Koleksi</a>
+              </td>
+            </tr>
           <?php
           }
           ?>
+          <!-- end -->
         </tbody>
       </table>
     </div>

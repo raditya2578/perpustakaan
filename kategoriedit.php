@@ -1,16 +1,17 @@
+<!-- Fungsi untuk mengubah kateogori -->
 <?php
 $id = $_GET['id'];
-    if(isset($_POST['simpan'])){
-        $namakategori = $_POST['namakategori'];
-
-        $sql = mysqli_query($conn, "UPDATE kategoribuku SET namakategori='$namakategori' WHERE kategoriid = $id");
-        if($sql){
-            echo "<script>alert('Ubah Kategori Berhasil'); location.href='?page=kategori'</script>";
-        }else{
-            echo "<script>alert('Ubah Kategori Gagal'); location.href='?page=kategori'</script>";
-        }
-    }
+if (isset($_POST['simpan'])) {
+  $namakategori = $_POST['namakategori'];
+  $sql = mysqli_query($conn, "UPDATE kategoribuku SET namakategori='$namakategori' WHERE kategoriid = $id");
+  if ($sql) {
+    echo "<script>alert('Ubah Kategori Berhasil'); location.href='?page=kategori'</script>";
+  } else {
+    echo "<script>alert('Ubah Kategori Gagal'); location.href='?page=kategori'</script>";
+  }
+}
 ?>
+<!-- end -->
 <div class="col-12 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
